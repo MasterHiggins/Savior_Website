@@ -1,0 +1,52 @@
+Changes Since Closed Beta
+Content Additions:
+Added the pre-post-game castle state. Players can now explore the lore of this world and the castle’s story.
+Added 3 new areas.
+Added new Eyeball enemy:
+-Takes 1 hit of damage to defeat.
+-Drops 0-1 materials upon death.
+-Added a new cutscene to provide context as to what is happening on the continents affected by The Great Ending.
+
+Gameplay Tweaks:
+Added a thin outline to the heart icons to indicate health.
+Ghosts now provide 0-5 materials upon death instead of 0.
+Region 1’s boss now provides 50 materials upon death instead of 100.
+Bulls now provide 2-4 materials instead of 0-2.
+Various tick changes:
+-The game now runs 30 ticks a second instead of 60, which matches the frame rate (30).
+-The player weapon now executes a tick before enemies.
+-Certain enemy animations are no longer tick-based and on an independent timer:
+--Skulls
+--Ghosts
+-Enemies are now the last tick executed in the order.
+-Enemy visual ticks are now executed after other graphical ticks, meaning they render above the environment. This is so the player can see where enemies are.
+-Weapon drawing ticks are now executed last on the list, meaning the weapon is drawn last.
+Various control changes:
+-When using controllers, you can now press Y (NS), X (Xbox), or Square (PS) to swing the weapon behind the player’s facing direction.
+-You can now hold down on the attack button to automatically activate the attack at the next possible frame.
+-Controller’s joystick movement is now treated as a D-Pad, meaning there are 8 directions of movement, and no longer 360.
+-When interacting with things, you can no longer hold down on the interact button to continuously interact with something.
+Various combat changes:
+-An enemy’s state of invincibility (White Flashing) has been decreased by 25% while using the first weapon you have.
+-Enemies now have a 50/50 chance to give no materials after death.
+-Region 1’s boss now has a new method for handling the camera.
+-Region 1’s boss now has a chance to speed up by 15% during one of their charge attacks.
+-The amount of materials needed to upgrade weapons has now been adjusted. Instead of following the previous formula (Weapon level * 100 + 30), it now follows a new formula (Weapon level * 100 + 30).
+-Weapon swing speed now increases the higher the weapon level.
+-There are now locks on how fast you can upgrade weapons. You must now reach the 3rd region of the game to upgrade your weapon past level 3. If you try to do so now, the blacksmith will tell you, “I’m sorry, I need to clean my anvil first and buy one of the funny top hats. Please come back later”.
+-An enemy’s state of invincibility (Flashing) has been reverted to its previous state.
+-Enemies no longer have a 50/50 chance of dropping no materials.
+-There are no longer locks on upgrading weapons, however, enemies now fail to produce materials until you reach the 3rd region IF you have acquired a level 3 weapon in the second region.
+-Worms now produce 0-3 materials upon death.
+
+Bug Fixes:
+The secret room from the beta has now been made inaccessible to the player. This was left in by accident from the private March beta.
+Fixed the 8 bonus chests in the challenge room (Ocean Front Region) containing an enemy gauntlet. These chests were previously already in an opened state, but they have now been changed to a closed state.
+Fixed a bug where chests were left open when reverting to a previous save state.
+Diagonal movement has been fixed, and is the same speed as moving along the x or y axis individually.
+The game no longer slows down randomly.
+Fixed an issue where the pause screen would either be too transparent or not transparent enough.
+Fixed a bug where if you tried to delete save data, then it would not be deleted.
+Enemies no longer render in front of dialogue boxes.
+Worms no longer display the proper graphic when loaded in.
+Enemies should not lag behind the camera movement any more.
