@@ -1,4 +1,4 @@
-// changelog
+//Changelog
 fetch('changelogs/test.txt')
     .then(response => response.text())
     .then(changelogText => displayChangelog(changelogText))

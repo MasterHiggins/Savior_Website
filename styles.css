@@ -127,3 +127,41 @@ h2 {
     justify-content: space-evenly;
     align-items: center;
 }
+
+.gallery-section {
+    background-color: lightslategray;
+    width: 90%;
+    padding: 5%;
+}
+
+.gallery-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.gallery-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.section-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+    background-color: rgb(255, 60, 60);
+    color: black;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 600px;
+}
+  
+.section-button:hover {
+    background-color: green;
+    color: white;
+    border-color: lightgreen;
+}
