@@ -165,3 +165,25 @@ h2 {
     color: white;
     border-color: lightgreen;
 }
+
+.release-page {
+    background-color: beige;
+    border: 5px solid brown;
+    margin: 2%;
+    width: 96%;
+    height: 90%;
+    text-align: center;
+}
+
+.release-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 45pt;
+    color: greenyellow;
+    height: 75px;
+    width: 100%;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
