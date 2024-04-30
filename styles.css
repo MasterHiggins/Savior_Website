@@ -187,3 +187,16 @@ h2 {
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+.dev-tag {
+    color: red;
+}
+
+.article-author {
+    color: blue;
+}
+
+.article-margins {
+    margin-left: 2%;
+    margin-right: 2%;
+}
