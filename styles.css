@@ -200,3 +200,27 @@ h2 {
     margin-left: 2%;
     margin-right: 2%;
 }
+
+.enemy-section {
+    background-color: whitesmoke;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.enemy-row {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.enemy-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+}
