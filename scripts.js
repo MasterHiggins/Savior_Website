@@ -1,5 +1,5 @@
 //Changelog
-fetch('changelogs/test.txt')
+fetch('changelogs/PublicBeta01.txt')
     .then(response => response.text())
     .then(changelogText => displayChangelog(changelogText))
     .catch(error => console.error('Error fetching changelog:', error));
@@ -9,7 +9,7 @@ function displayChangelog(changelogText) {
     const lines = changelogText.split('\n');
 
     for (const line of lines) {
-        if (line.startsWith('Changes Since') || (line.startsWith('Update Version'))) {
+        if (line.startsWith('Changes Since') || (line.startsWith('Update Version')) || (line.startsWith('Public Beta'))) {
             const heading = document.createElement('h1');
             heading.textContent = line;
             changelogDiv.appendChild(heading);
