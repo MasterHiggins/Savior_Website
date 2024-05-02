@@ -17,7 +17,8 @@ function displayChangelog(changelogText) {
                     line.startsWith('Content Additions') || 
                     line.startsWith('Gameplay Tweaks') || 
                     line.startsWith('Bug Fixes') || 
-                    line.startsWith('Known Issues')
+                    line.startsWith('Known Issues') ||
+                    line.startsWith('Release Dates')
                 ) {
             const boldHeading = document.createElement('strong');
             boldHeading.textContent = line;

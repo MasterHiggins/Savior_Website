@@ -40,7 +40,7 @@ button:hover {
     justify-content: space-between;
     align-items: center;
     margin-right: 20px;
-    width: 35%;
+    width: 45%;
 }
 
 h1 {
@@ -223,4 +223,38 @@ h2 {
     justify-content: space-evenly;
     align-items: center;
     padding: 10px;
+}
+
+.release-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+    background-color: rgb(255, 60, 60);
+    color: black;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 400px;
+}
+  
+.release-button:hover {
+    background-color: green;
+    color: white;
+    border-color: lightgreen;
+}
+
+.button-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px;
+}
+
+.button-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 400px;
 }
