@@ -263,10 +263,10 @@ h2 {
     width: 400px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 445px) {
     header {
-        padding-bottom: 10px;
-        height: 100px;
+        padding-bottom: 15px;
+        height: 300px;
         background-color: lightslategray;
         display: flex;
         flex-direction: column;
@@ -275,9 +275,9 @@ h2 {
     }
 
     .header-buttons {
-        margin-right: 300px;
+        margin-right: 0%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
         height: 150px;
@@ -289,7 +289,7 @@ h2 {
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        font-size: 22pt;
+        font-size: 13pt;
         color: greenyellow;
         background-color: white;
         height: 75px;
@@ -318,7 +318,7 @@ h2 {
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        font-size: 35pt;
+        font-size: 28pt;
         color: greenyellow;
         height: 75px;
         width: 100%;
@@ -347,5 +347,68 @@ h2 {
         justify-content: space-evenly;
         align-items: center;
         padding: 10px;
+    }
+
+    .enemy-row {
+        margin-left: 20px;
+        margin-right: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .enemy-element {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 10px;
+    }
+
+    footer {
+        height: 150px;
+        background-color: lightslategray;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .release-page {
+        background-color: beige;
+        border: 5px solid brown;
+        width: 90%;
+        height: 90%;
+        text-align: center;
+    }
+
+    .centered-object img {
+        width: 90%;
+        height: auto;
+    }
+
+    .release-button {
+        display: inline-block;
+        padding: 10px 20px;
+        border: 2px solid red;
+        border-radius: 10px;
+        background-color: rgb(255, 60, 60);
+        color: black;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        width: 300px;
+    }
+
+    p {
+        width: 300px;
+        font-size: 14pt;
+    }
+
+    iframe {
+        width: 90%;
+        height: auto;
     }
 }
