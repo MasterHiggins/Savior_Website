@@ -263,6 +263,15 @@ h2 {
     width: 400px;
 }
 
+.announcement-banner {
+    width: 100%;
+    text-align: center;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: black;
+}
+
 @media (max-width: 445px) {
     header {
         padding-bottom: 15px;
