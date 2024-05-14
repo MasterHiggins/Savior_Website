@@ -1,1 +1,13 @@
 There is currently no changelog available.
+When a beta releases, a changelog will be displayed here
+A beta is planned to release by the end of May, alongside:
+-An overview video
+-A second trailer
+-Large developer update
+Should anything change, please keep an eye on news releases and linkedin
+
+If you are seeing this text, then you do not have permission to see the developer change logs on this site. If this is an issue, please contact the developer. Otherwise, please be patient for the beta release.
+
+If you aren't seeing this text, that means you DO have permission to see the developer change logs. Good for you I suppose.
+
+Man, JavaScript is a nightmare.
