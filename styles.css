@@ -272,6 +272,19 @@ h2 {
     background-color: black;
 }
 
+.countdown-backdrop {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40pt;
+}
+
 /* Temporary Screen Covers */
 .screen-cover {
     width: 100%;
