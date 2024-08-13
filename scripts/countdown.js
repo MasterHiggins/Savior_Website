@@ -1,5 +1,5 @@
 //Countdown
-var countDownDate = new Date("Aug 13, 2024 18:30:00").getTime();
+var countDownDate = new Date("Aug 18, 2024 18:30:00").getTime();
 
 var x = setInterval(function() {
 
@@ -22,7 +22,7 @@ document.getElementById("countdown").innerHTML = formattedTime;
 if (distance < 0) {
     clearInterval(x);
     document.getElementById("countdown").innerHTML = "Refresh for announcement";
-    window.location.href = "index.html";
+    window.location.href = "releases/DeveloperVideo.html";
 }
 }, 1000);
 
