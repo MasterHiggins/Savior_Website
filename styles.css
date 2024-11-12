@@ -188,6 +188,10 @@ h2 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.tech-article {
+    color: rgb(88, 189, 88);
+}
+
 .dev-tag {
     color: red;
 }
