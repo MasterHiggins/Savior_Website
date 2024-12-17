@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savior Development Pages</title>
+    <style type="text/css">
+        code { background-color: lightgray; color: green; }
+    </style>
+</head>
+
+<body>
+    <h1>Devloper Commands</h1>
+    <h3>Please use with caution on your distributed development build</h3>
+    <p>
+        To activate these developer console commands, press 9 on the keyboard. Ensure the level editor is not on
+        first.
+    </p>
+
+    <code>ReloadArea</code>
+    <p>Reloads the area as if it was just generated. Enemy generation takes a second to catch up with this command.</p>
+
+    <code>SaveState</code>
+    <p>Force saves the game.</p>
+
+    <code>LoadState</code>
+    <p>Loads the last saved game.</p>
+
+    <code>SpellsToggle</code>
+    <p>Toggles on and off spells.</p>
+
+    <code>CurrentQuestLevel</code>
+    <p>Input an integer afterwards to change the quest in sequence.</p>
+
+    <code>MapChangeLevel</code>
+    <p>Input an integer afterwards to change the quest in sequence. For the sake of testing, this should almost always be 0.</p>
+
+    <code>Area</code>
+    <p>Input an area id (ex: main:1:1). Follow up with the <code>ReloadArea</code> command.</p>
+
+    <code>WeaponLevel</code>
+    <p>Input an integer that acts as the weapon id. This will change the weapon, however the graphic will be incorrect after the highest supported value.</p>
+
+    <code>MaterialCount</code>
+    <p>Sets the amount of materials you have.</p>
+
+    <code>MaxHealth</code>
+    <p>Sets the max health you can have based on the specified integer. Graphics will not display until area is reloaded, but the change is instant.</p>
+
+    <code>Health</code>
+    <p>Sets your health to the specified integer.</p>
+
+    <code>CustomSaveString</code>
+    <p>
+        <b>DO NOT USE THIS COMMAND UNLESS ABSOLUTELY NECESSARY.</b><br>
+        After entering command, you will be prompted and must answer "Yes" to continue. After that, input the string you want to have as your save file. If you follow that up by answering "Yes", then it will be loaded automatically.
+    </p>
+
+    <a href = "Navigation.html">
+        <button>
+            Back to Navigation
+        </button>
+    </a>
+
+</body>
+
+</html>
