@@ -1,1 +1,0 @@
-All images/resources in this folder are free to use, just not commercially
