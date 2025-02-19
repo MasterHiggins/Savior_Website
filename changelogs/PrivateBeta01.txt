@@ -1,0 +1,59 @@
+Update Version 0.3.4D
+Content Additions:
+Added the Island Area, consisting of 15 screens.
+Added the Dungeons, consisting of 12 screens.
+Added spells:
+-Hellfire, an attack that shoots 4 fireballs in 4 different directions.
+-Ice, which freezes all loaded enemies for 10 seconds.
+-Sun Beam, a beam that chooses a random spot on screen and instantly vapourizes all evemies it contacts.
+-Moon Gravity, a circle extending from the player that defeats the enemies it contacts.
+--Spells only do 50 damage to boss enemies.
+Added 2 new enemies:
+-Mushroom:
+--Takes 1 hit of damage to defeat.
+--Drops 2 materials upon death.
+-Bean:
+--They have 11 health.
+--Provides 0-4 materials upon death.
+Added the ??? Boss.
+-Has 120 health.
+-Provides 25 materials upon death.
+-The boss moves slowly towards the player in an enclosed arena.
+
+Gameplay Tweaks:
+The last 3 sword levels are now inaccessible in the blacksmith, and can only be upgraded through means not yet implemented.
+Various enemies now have material drops tweaked:
+-Bulls now provide 0-2 materials.
+-Ghosts now provide a constant 4 materials.
+-Worms now provide 0-1 materials.
+-The Shadow now provides 150 materials the first time it is defeated, then 75 until it's 11th defeat, where it decreases back to the original amount.
+-Slimes now provide a constant 1 material.
+-Bosses now provide half of their materials after you defeat them.
+The layer rendering above the player is now drawn before the weapon tick.
+Player movement is now executed first in the game loop.
+The health icon now has a small white slash.
+All UI now work with controllers.
+Multiple enemy rendering and loading adjustments.
+
+Bug Fixes:
+Fixed a crash involving when 3 slimes were defeated in the same frame. This was not possible in normal gameplay.
+Fixed an issue where the sword would become offset from the player for a few seconds after defeating a boss.
+Fixed a bug where enemies would remain on screen and active after death.
+Fixed a bug where enemies would go after the first enemy loaded into memory.
+Fixed a bug where The Shadow's health would sometimes decrease depending how far from their origin they were.
+Fixed a bug that allowed the player to clip out of the boundaries in the first screen of the first area.
+Fixed a bug where, after a save is loaded, the area you are loaded into would be the first area, which is incorrect.
+Fixed a bug that increased the index of tiles by 1, resulted in unplayable levels.
+
+Known Issues:
+Nintendo Switch Pro Controllers do not function correctly in game after using the UI.
+Some enemies still render of signs and text.
+
+For Developers:
+This build of the game allows access to the console by pressing the 9 key. For commands, go to devpages. Some inaccesible commands:
+-Connect/___/___
+--devpages/aws, string.
+--This allowed to connect to devpages or an aws platform to send data to other users with developer permissions. This has since become defunct and inaccessible.
+-DirectModify/___/___/___/___
+--area, grid/enemy, index start, index end.
+--This command allowed for directly editing data stored in the game, however this was removed and only accessible to main developers who actually know what they're doing.

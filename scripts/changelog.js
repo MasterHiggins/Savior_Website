@@ -1,5 +1,5 @@
 //Changelog
-fetch('changelogs/PublicBeta01.txt')
+fetch('changelogs/PrivateBeta01.txt')
     .then(response => response.text())
     .then(changelogText => displayChangelog(changelogText))
     .catch(error => console.error('Error fetching changelog:', error));
@@ -18,7 +18,8 @@ function displayChangelog(changelogText) {
                     line.startsWith('Gameplay Tweaks') || 
                     line.startsWith('Bug Fixes') || 
                     line.startsWith('Known Issues') ||
-                    line.startsWith('Release Dates')
+                    line.startsWith('Release Dates') ||
+                    line.startsWith('For Developers')
                 ) {
             const boldHeading = document.createElement('strong');
             boldHeading.textContent = line;
