@@ -1,0 +1,38 @@
+Update Version 0.3.5D
+Content Additions:
+Added start to Mountains.
+Added new Ancient Module and cutscene
+Added 2 new enemies:
+-Spike:
+--Takes 12 hits of damage to defeat.
+--Drops 0-4 materials upon death.
+-Snow Bull:
+--They have 9 health.
+--Provides 1-2 materials upon death.
+
+Gameplay Tweaks:
+Adjusted pause UI slightly to account for new mountain warp option.
+Adjusted speed of sword swings to be slightly faster.
+Adjusted loading of areas after interacting with letter blocks or ancient modules.
+
+Bug Fixes:
+Fixed an issue where spells were usable before being unlocked.
+Fixed several control issues on controllers regarding spells:
+-Spells no longer cycle quickly when holding down on the selection buttons.
+-Spells no longer are used in rapid succession after pressing the using button.
+-Spells now start on Hellfire after connecting a controller. 
+-The last option for spells on controller is now saved in the file.
+-Using a spell with less hearts than the cost is will no longer result in a game over.
+
+Known Issues:
+Nintendo Switch Pro Controllers do not function correctly in game after using the UI. (11/13/24)
+Some enemies still render of signs and text. (4/02/24)
+
+For Developers:
+This build of the game allows access to the console by pressing the 9 key. For commands, go to devpages. Some inaccesible commands:
+-Connect/___/___
+--devpages/aws, string.
+--This allowed to connect to devpages or an aws platform to send data to other users with developer permissions. This has since become defunct and inaccessible.
+-DirectModify/___/___/___/___
+--area, grid/enemy, index start, index end.
+--This command allowed for directly editing data stored in the game, however this was removed and only accessible to main developers who actually know what they're doing.
