@@ -1,0 +1,92 @@
+Steam Beta 0.1.0
+Content Additions:
+Added the pre-post-game castle state. Players can now explore the lore of this world and the castle’s story.
+Added 19 new areas to the new third region.
+Added a new cutscene to provide context as to what is happening on the continents affected by The Great Ending.
+Added the third ancient module, which includes a warp point to the third area.
+Added 3 new enemies:
+-Eyeball:
+--Takes 1 hit of damage to defeat.
+--Drops 0-1 materials upon death.
+-The Shadow:
+--Moves/glitches randomly and is unbothered by the player.
+--Once attacked, it becomes the fastest entity in the game and immediately chases the player.
+--It has 500 health, and upon death, they provide 15 materials. They are not intended to be killed.
+-Slime:
+--Moves in a set path ignoring the player.
+--They have 4 health and do not steer off course when attacked.
+--Upon death, they provide 3-4 materials.
+Add the Slime Guard boss.
+-Has 60 health.
+-Provides 100 materials upon death.
+-The boss itself does not attack the player, but it does do damage if it hits the player while chasing it.
+Added 3 new sword levels.
+-These are currently able to be upgraded through the blacksmith, however this is planned to change.
+
+Gameplay Tweaks:
+Added a thin outline to the heart icons to indicate health.
+Ghosts now provide 0-5 materials upon death instead of 0.
+Region 1’s boss now provides 50 materials upon death instead of 100.
+Bulls now provide 2-4 materials instead of 0-2.
+Various tick changes:
+-The game now runs 30 ticks a second instead of 60, which matches the frame rate (30).
+-The player weapon now executes a tick before enemies.
+Certain enemy animations are no longer tick-based and on an independent timer:
+-Skulls
+-Ghosts
+Enemies are now the last tick executed in the order.
+Enemy visual ticks are now executed after other graphical ticks, meaning they render above the environment. This is so the player can see where enemies are.
+Weapon drawing ticks are now executed last on the list, meaning the weapon is drawn last.
+Various control changes:
+-When using controllers, you can now press Y (NS), X (Xbox), or Square (PS) to swing the weapon behind the player’s facing direction.
+-You can now hold down on the attack button to automatically activate the attack at the next possible frame.
+-Controller’s joystick movement is now treated as a D-Pad, meaning there are 8 directions of movement, and no longer 360.
+-When interacting with things, you can no longer hold down on the interact button to continuously interact with something.
+-Worms now produce 0-3 materials upon death.
+Eyeballs now move slightly faster to balance out their low health.
+The Refuger now has dialogue based off of where you are in the game’s quest line.
+King Nugget now has dialogue based off of where you are in the game’s quest line.
+Controllers are now supported fully in the menu:
+-Press the typical menu button to open the pause menu.
+-Press the left face button (A on NS, B on Xbox, and Circle on PS) to select an option
+-Use the D-Pad/ Directional Buttons to navigate the menu.
+The enemy generation has been tweaked to account for new development tools.
+Some UI elements have been adjusted.
+You can now use keyboard keys to attack:
+-Press X to use the weapon in front of you.
+-Press C to use the weapon behind you.
+Various changes were made to the health indicator icons:
+-The outline around the health indicator icons have been made twice as thick.
+-The icons themselves have been changed from a 2 pixel base to a 1 pixel base (They are more round).
+Various changes have been made behind the scenes to help with developer tools.
+The Shadow enemy has been made slightly slower.
+Slime enemies no longer move as far as they used to.
+You can hold down on “Q” to see the current weapon you have. There is no intention of mapping this to a controller setup as this was previously just a development feature to test the level 10 sword.
+Formula for weapon delay has been tweaked.
+-If your sword is level 5 or below, then the formula remains the same (5 / Weapon Level).
+-If your sword level is above 5, then the formula is now (8 / Weapon Level).
+
+Bug Fixes:
+The secret room from the beta has now been made inaccessible to the player. This was left in by accident from the private March beta.
+Fixed the 8 bonus chests in the challenge room (Ocean Front Region) containing an enemy gauntlet. These chests were previously already in an opened state, but they have now been changed to a closed state.
+Fixed a bug where chests were left open when reverting to a previous save state.
+Diagonal movement has been fixed, and is the same speed as moving along the x or y axis individually.
+The game no longer slows down randomly.
+Fixed an issue where the pause screen would either be too transparent or not transparent enough.
+Fixed a bug where if you tried to delete save data, then it would not be deleted.
+Enemies no longer render in front of dialogue boxes.
+Worms no longer display the proper graphic when loaded in.
+Enemies should not lag behind the camera movement any more.
+Fixed an issue where a Bull jumped up over a cliff in the second region.
+Various spelling and typo errors.
+Various signs did not display the progression arrow, which is now resolved.
+Addressed an issue where the fade to black scene transition would not fade away.
+Fixed an issue where enemies rendered over objects in the UI (Such as the health indicators).
+Fixed an issue where controllers did not function correctly in menus.
+Letter blocks now work with 4 different kinds in the same area.
+The sword radius has been fixed.
+
+Known Issues:
+There is a known issue where enemies continue to render over the text and dialogue boxes in very specific circumstances. This bug was previously patched with older enemies, however newer ones do not have the same fix.
+Controllers sometimes do not function correctly in the game over screen, though the circumstances of this happening are so rare that the source of the issue has not yet been determined.
+The 2nd region’s boss can be pretty glitchy at times, which on one hand fits the boss (Tricky character), but on the other hand, it could be a little disorienting. This will most likely be changed, but isn’t exactly a priority.
