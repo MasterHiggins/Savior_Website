@@ -22,7 +22,7 @@ document.getElementById("countdown").innerHTML = formattedTime;
 if (distance < 0) {
     clearInterval(x);
     document.getElementById("countdown").innerHTML = "Refresh for announcement";
-    window.location.href = "2025Overview1.html";
+    window.location.href = "Summer2025Update.html";
 }
 }, 1000);
 
