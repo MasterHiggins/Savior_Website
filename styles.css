@@ -7,6 +7,11 @@ header {
     align-items: center;
 }
 
+header img {
+    width: 10%;
+    height: auto;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -515,6 +520,11 @@ h2 {
         font-size: 13pt;
         margin: 0 0 8px 0;
         padding: 0 4px;
+    }
+
+    footer {
+        background-color: white;
+        flex-direction: column;
     }
 }
 
