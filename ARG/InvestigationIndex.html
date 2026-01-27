@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ending Investigation</title>
+    <link rel = "stylesheet" href = "InvestigationStyles.css">
+    <link rel = "icon" href = "../assets/Logo.gif">
+</head>
+
+<!--June 29th, 2025 began work on the programming of the ARG-->
+<!--July 2nd, 2025 finished writing the ARG, and therefore Savior lore-->
+<!--July 8th, 2025 finished the ARG-->
+<!--January 19th, 2026 accidentally leaked the damn ARG's existence-->
+
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1 class="portal-title">CLASSIFIED INVESTIGATION PORTAL</h1>
+                <p class="portal-subtitle">Department of Anomalous Events</p>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <p class="greeting">Hello, <span class="username">Evan</span></p>
+                    <button class="logout-btn" onclick="logout()">Sign Out</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <div class="content-wrapper">
+                <section class="welcome-section">
+                    <h2>Investigation Dashboard</h2>
+                    <p>Welcome to the Ending Investigation Portal. Access case files and communications below.</p>
+                </section>
+
+                <section class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-icon">💬</div>
+                        <h3>Message Board</h3>
+                        <p>Access secure communications and message threads related to ongoing investigations.</p>
+                        <a href="MessageBoard.html" class="card-button">Enter Message Board</a>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-icon">📁</div>
+                        <h3>Apocalypse Files</h3>
+                        <p>Review classified documentation and case files pertaining to the apocalyptic event.</p>
+                        <a href="ApocalypseFiles.html" class="card-button">View Files</a>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-icon">👤</div>
+                        <h3>Tyler Patrick Dossier</h3>
+                        <p>Access confidential files and records exclusive to Subject Tyler Patrick.</p>
+                        <a href="TylerPatrickFiles.html" class="card-button">Open Dossier</a>
+                    </div>
+                </section>
+
+                <section class="classified-notice">
+                    <p>⚠️ All information contained within this portal is classified and restricted to authorized personnel only.</p>
+                </section>
+            </div>
+        </main>
+
+        <footer class="dashboard-footer">
+            <p>&copy; Department of Anomalous Events | SESSION ID: 3V4N-3ND1N9 | SECURITY LEVEL: TOP SECRET</p>
+        </footer>
+    </div>
+
+    <script>
+        function logout() {
+            window.location.href = 'PortalLogin.html';
+            
+        };
+    </script>
+</body>
+
+</html>

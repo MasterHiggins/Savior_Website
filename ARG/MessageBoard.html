@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ending Investigation</title>
+    <link rel = "stylesheet" href = "InvestigationStyles.css">
+    <link rel = "icon" href = "../assets/Logo.gif">
+</head>
+
+<body>
+    <div class="messageboard-container">
+        <header class="messageboard-header">
+            <button class="back-button" onclick="goBack()">← Back</button>
+            <h1 class="messageboard-title">Secure Communications</h1>
+            <div class="header-spacer"></div>
+        </header>
+
+        <main class="messageboard-main">
+            <div class="messages-container" id="messagesContainer">
+            </div>
+        </main>
+    </div>
+
+    <script src="scripts/messageboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMessages();
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>

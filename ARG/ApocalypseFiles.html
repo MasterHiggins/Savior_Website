@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apocalypse Files</title>
+    <link rel="stylesheet" href="InvestigationStyles.css">
+    <link rel="icon" href="../assets/Logo.gif">
+</head>
+
+<body>
+    <div class="files-container">
+        
+        <header class="files-header">
+            <button class="back-button" onclick="goBack()">← Back</button>
+            <h1 class="files-title">Apocalypse Files Archive</h1>
+            <div class="header-spacer"></div>
+        </header>
+
+        <div class="files-controls">
+            <button class="control-button" onclick="toggleAllFiles(true)">Expand All</button>
+            <button class="control-button" onclick="toggleAllFiles(false)">Collapse All</button>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search files...">
+        </div>
+
+        <main class="files-main">
+            <div id="filesContainer" class="files-list">
+            </div>
+        </main>
+
+        <footer class="files-footer">
+            <p>Total Files: <span id="fileCount">0</span> | Classification Level: TOP SECRET</p>
+        </footer>
+    </div>
+
+    <script src="scripts/files.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            renderFiles();
+            document.getElementById('fileCount').textContent = apocalypseFiles.length;
+
+            document.getElementById('searchInput').addEventListener('input', function(e) {
+                const searchTerm = e.target.value;
+                if (searchTerm.trim() === '') {
+                    renderFiles();
+                } else {
+                    const results = searchFiles(searchTerm);
+                    displaySearchResults(results);
+                }
+            });
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+
+        function displaySearchResults(results) {
+            const container = document.getElementById('filesContainer');
+            container.innerHTML = '';
+
+            if (results.length === 0) {
+                container.innerHTML = '<div class="no-results">No files match your search.</div>';
+                return;
+            }
+
+            results.forEach((file, index) => {
+                const originalIndex = apocalypseFiles.findIndex(f => f.number === file.number);
+                const fileElement = createFileElement(file, originalIndex);
+                container.appendChild(fileElement);
+            });
+        }
+    </script>
+</body>
+
+</html>

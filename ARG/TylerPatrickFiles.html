@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ending Investigation</title>
+    <link rel="stylesheet" href="InvestigationStyles.css">
+    <link rel="icon" href="../assets/Logo.gif">
+</head>
+
+<body>
+    <div class="files-viewer-container">
+        <div class="files-viewer-header">
+            <div class="nav-section">
+                <button id="prevBtn" class="nav-button" style="display: none;">← PREVIOUS FILE</button>
+            </div>
+            <h1 class="files-viewer-title" id="fileTitle">TYLER PATRICK FILES</h1>
+            <div class="nav-section">
+                <button id="backBtn" class="nav-button">BACK</button>
+                <button id="nextBtn" class="nav-button" style="display: none;">NEXT FILE →</button>
+            </div>
+        </div>
+
+        <div class="files-viewer-content">
+            <div id="fileContent" class="file-viewer-main"></div>
+        </div>
+
+        <div class="files-viewer-footer">
+            <span id="fileCounter">File 1 of 5</span>
+        </div>
+    </div>
+
+    <script src="scripts/TPfiles.js"></script>
+</body>
+
+</html>

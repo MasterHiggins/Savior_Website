@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel = "stylesheet" href = "styles.css">
+    <link rel = "icon" href = "../assets/Logo.gif">
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <h2 class="login-title">Portal Access</h2>
+            
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pin">PIN:</label>
+                    <input type="password" id="pin" name="pin" placeholder="Enter 4-digit PIN" maxlength="4" required>
+                </div>
+
+                <div id="errorMessage" class="error-message"></div>
+
+                <button type="submit" class="login-button">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const pin = document.getElementById('pin').value;
+
+            const correctUsername = 'Evan';
+            const correctPassword = 'Ending123';
+            const correctPin = '0522';
+
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (username === correctUsername && password === correctPassword && pin === correctPin) {
+                window.location.href = 'InvestigationIndex.html';
+            } else {
+                errorMessage.textContent = 'Invalid credentials. Please try again.';
+                errorMessage.style.display = 'block';
+                document.getElementById('password').value = '';
+                document.getElementById('pin').value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
