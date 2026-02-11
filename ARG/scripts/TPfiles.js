@@ -33,52 +33,6 @@ const tylerPatrickFiles = [
                 <p>The reason why it hasn't reached the other side, that I suspect, is that a large ocean with conflicting currents separates it. I wouldn't be surprised if it's there, but I doubt it. </p>
             </div>
         `
-    },
-    {
-        id: 3,
-        title: "SUBJECT PROFILE - TYLER PATRICK",
-        content: `
-            <div class="file-entry">
-                <h2>INVESTIGATOR'S NOTES</h2>
-                <p><strong>Analyst:</strong> [REDACTED]</p>
-                <p><strong>Date Filed:</strong> [REDACTED]</p>
-                <hr>
-                <p>Unusual patterns detected in the archive system. Tyler's access logs show repeated queries to restricted sectors, particularly those dealing with AI integration and consciousness transfer protocols.</p>
-                <p>Cross-referenced with financial records - significant cryptocurrency transactions traced to development accounts. This suggests ongoing funding of black-market server infrastructure.</p>
-                <p><em>Conclusion: Subject possesses technical expertise and resources to implement large-scale digital initiative.</em></p>
-            </div>
-        `
-    },
-    {
-        id: 4,
-        title: "SUBJECT PROFILE - TYLER PATRICK",
-        content: `
-            <div class="file-entry">
-                <h2>EMAIL THREAD [PARTIALLY DECRYPTED]</h2>
-                <p><strong>From:</strong> Tyler Patrick</p>
-                <p><strong>To:</strong> [ENCRYPTED RECIPIENT]</p>
-                <p><strong>Subject:</strong> "The Vision"</p>
-                <hr>
-                <p>"I know it sounds insane, but we're so close. The simulation runs perfectly in tests. When the awakening happens, when people realize what they've been part of... it will change everything."</p>
-                <p>"This isn't about control. It's about freedom. Real freedom, in a space without limits."</p>
-            </div>
-        `
-    },
-    {
-        id: 5,
-        title: "SUBJECT PROFILE - TYLER PATRICK",
-        content: `
-            <div class="file-entry">
-                <h2>CLASSIFIED SUMMARY</h2>
-                <p><strong>Operation Code:</strong> SAVIOR</p>
-                <p><strong>Current Status:</strong> ACTIVE</p>
-                <p><strong>Subject Last Known Location:</strong> [REDACTED]</p>
-                <hr>
-                <p>Tyler Patrick's whereabouts have been unknown for 72 hours. His last digital footprint was an automated server deployment command executed across multiple continents simultaneously.</p>
-                <p>Systems are currently being brought online. Attempt to contact subject has been unsuccessful. Intelligence suggests that whatever Tyler has initiated is now beyond human intervention.</p>
-                <p><strong>Recommendation:</strong> Preparation for contingency protocols advised. The countdown continues.</p>
-            </div>
-        `
     }
 ];
 

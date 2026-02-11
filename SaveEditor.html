@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savior - Homepage</title>
+    <link rel = "stylesheet" href = "styles.css">
+    <link rel = "icon" href = "assets/Logo.gif">
+</head>
+
+<header>
+    <img src = "assets/Logo.gif" style = "margin-left: 20px;" class = "logo">
+    <div class = "header-buttons">
+        <a href = "index.html">
+            <button>
+                Home
+            </button>
+        </a>
+        <a href = "beta.html">
+            <button>
+                Betas
+            </button>
+        </a>
+        <a href = "changelogs.html">
+            <button>
+                Changelogs
+            </button>
+        </a>
+        <a href = "trailers.html">
+            <button>
+                Trailers
+            </button>
+        </a>
+        <a href = "releases.html">
+            <button>
+                Releases
+            </button>
+        </a>
+    </div>
+</header>
+
+<body>
+    <main style="padding:20px; max-width:1100px; margin:0 auto;">
+        <h1>Save File Editor</h1>
+        <p>Upload a .txt save file (comma-separated values). All values will be rendered as editable fields.</p>
+
+        <div style="margin-bottom:12px; display:flex; gap:18px; align-items:center; flex-wrap:wrap;">
+            <div>
+                <label><strong>Choose save .txt file:</strong></label><br>
+                <input id="fileInput" type="file" accept=".txt" />
+            </div>
+            <div>
+                <button id="parseRawBtn" disabled>Parse Raw</button>
+                <button id="applyBtn" disabled>Apply Changes</button>
+                <button id="downloadBtn" disabled>Download Modified File</button>
+                <button id="addFieldBtn" disabled>Add Field</button>
+                <button id="removeFieldBtn" disabled>Remove Field</button>
+                <button id="resetBtn" disabled>Reset</button>
+            </div>
+        </div>
+
+        <div style="display:flex; gap:16px;">
+            <div style="flex:1; min-width:320px;">
+                <h3>Fields</h3>
+                <div id="fieldsContainer" style="max-height:520px; overflow:auto; padding:8px; border:1px solid #ddd; background:#fafafa;"></div>
+            </div>
+
+            <div style="flex:1; min-width:320px;">
+                <h3>Raw Save String</h3>
+                <textarea id="rawContent" style="width:100%;height:420px;font-family:monospace;" placeholder="Uploaded file contents will appear here..."></textarea>
+                <p style="font-size:12px;color:#555; margin-top:6px;">Edit the raw string and use <em>Parse Raw</em> to re-generate the fields.</p>
+            </div>
+        </div>
+
+        <p style="font-size:12px;color:#555; margin-top:12px;">Tip: Field labels are provided for the early values from SaveString.html; later values are numbered. The editor will preserve trailing comma when downloading.</p>
+    </main>
+
+</body>
+
+<footer>
+    <img src = "assets/Logo.gif" width = "auto" height = "80px">
+    <div class = "footer-contact">
+        <section>Need to contact the developer?</section>
+        <a href = "https://www.linkedin.com/in/chris-higg/">
+            <button>
+                Linkedin
+            </button>
+        </a>
+    </div>
+</footer>
+
+<script>
+(() => {
+    const fileInput = document.getElementById('fileInput');
+    const rawContent = document.getElementById('rawContent');
+    const applyBtn = document.getElementById('applyBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const parseRawBtn = document.getElementById('parseRawBtn');
+    const fieldsContainer = document.getElementById('fieldsContainer');
+    const addFieldBtn = document.getElementById('addFieldBtn');
+    const removeFieldBtn = document.getElementById('removeFieldBtn');
+
+    let originalText = '';
+    let originalFilename = 'modified_save.txt';
+
+    // Human-readable labels from SaveString.html for early fields
+    const FIELD_LABELS = [
+        'Weapon Level', //1
+        'Area ID',
+        "Player's Health",
+        "Player X Position",
+        "Player Y Position",
+        "Player Direction",
+        "Player Maximum Health",
+        'Current Quest',
+        "Player's Material Count",
+        'Map Change',
+        'Spells Unlocked (Boolean)',
+        'Farm Auto Harvest (Boolean)',
+        'Extra Materials in Chests (Integer)',
+        'Crop Speed (Integer)',
+        'Extra Enemy Drops (Integer)',
+        'Enemy Miss (Boolean)',
+        'Extra Hearts (Integer)',
+        'Material for Harvest (Integer)',
+        'Player Speed (Integer)',
+        'Spell Cool Down (Integer)',
+        'Spell Cost (Materials or Health)',
+        'Sun Shard (Boolean)',
+        'Sword Size (Integer)',
+        'Waste Material (Boolean)',
+        'Extra Weapon Damage (Integer)'
+    ];
+
+    function parseValues(text) {
+        return text.split(',');
+    }
+
+    function renderInputs(vals) {
+        fieldsContainer.innerHTML = '';
+        for (let i = 0; i < vals.length; i++) {
+            const wrapper = document.createElement('div');
+            wrapper.style.display = 'flex';
+            wrapper.style.gap = '8px';
+            wrapper.style.marginBottom = '6px';
+            wrapper.style.alignItems = 'center';
+
+            const idx = i + 1;
+            const label = document.createElement('label');
+            label.style.minWidth = '220px';
+            label.style.fontSize = '13px';
+            label.textContent = (FIELD_LABELS[i] ? `${idx}. ${FIELD_LABELS[i]}` : `${idx}. Value ${idx}`);
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = vals[i] !== undefined ? vals[i] : '';
+            input.dataset.index = i;
+            input.style.flex = '1';
+            input.style.minWidth = '160px';
+
+            wrapper.appendChild(label);
+            wrapper.appendChild(input);
+            fieldsContainer.appendChild(wrapper);
+        }
+    }
+
+    fileInput.addEventListener('change', (e) => {
+        const f = e.target.files && e.target.files[0];
+        if (!f) return;
+        originalFilename = f.name.replace(/\.txt$/i, '') + '_modified.txt';
+        const reader = new FileReader();
+        reader.onload = () => {
+            originalText = String(reader.result || '');
+            rawContent.value = originalText;
+            const vals = parseValues(originalText);
+            renderInputs(vals);
+            applyBtn.disabled = false;
+            downloadBtn.disabled = false;
+            resetBtn.disabled = false;
+            parseRawBtn.disabled = false;
+            addFieldBtn.disabled = false;
+            removeFieldBtn.disabled = false;
+        };
+        reader.readAsText(f);
+    });
+
+    parseRawBtn.addEventListener('click', () => {
+        const text = rawContent.value || '';
+        const vals = parseValues(text);
+        renderInputs(vals);
+    });
+
+    applyBtn.addEventListener('click', () => {
+        const inputs = fieldsContainer.querySelectorAll('input[data-index]');
+        const vals = [];
+        inputs.forEach((el) => vals.push(el.value));
+        const newText = vals.join(',') + ',';
+        rawContent.value = newText;
+    });
+
+    addFieldBtn.addEventListener('click', () => {
+        const inputs = fieldsContainer.querySelectorAll('input[data-index]');
+        const vals = [];
+        inputs.forEach((el) => vals.push(el.value));
+        vals.push('');
+        renderInputs(vals);
+    });
+
+    removeFieldBtn.addEventListener('click', () => {
+        const inputs = fieldsContainer.querySelectorAll('input[data-index]');
+        if (inputs.length === 0) return;
+        const vals = [];
+        inputs.forEach((el) => vals.push(el.value));
+        vals.pop();
+        renderInputs(vals);
+    });
+
+    downloadBtn.addEventListener('click', () => {
+        const text = rawContent.value || originalText;
+        const blob = new Blob([text], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = originalFilename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+    });
+
+    resetBtn.addEventListener('click', () => {
+        rawContent.value = originalText;
+        const vals = parseValues(originalText);
+        renderInputs(vals);
+    });
+})();
+</script>
+
+<script src = "scripts.js"></script>
+
+</html>
