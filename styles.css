@@ -315,6 +315,10 @@ h2 {
     padding: 0;
 }
 
+img {
+    image-rendering: pixelated;
+}
+
 @media (max-width: 445px) {
     .header-buttons {
         flex-direction: row;
