@@ -1,0 +1,35 @@
+Full release 1.1.0
+Content Additions:
+Added the Mesa:
+-Slightly smaller than the Empire
+-Contains two new enemies
+-Contains a new story mechanic
+Added the Wizard:
+-Appears around the world in various spots
+-Delivers lore on what the prophecy and the world really could be
+Added Farming Refunds:
+-Farming perks can now be refunded
+-For perks that have multiple levels, you are only refunded once
+
+Gameplay Tweaks:
+Farm statues now have dialogue after purchasing a perk
+The cutscene that plays after defeating the boss in the mountain has been adjusted
+Opening cutscene has been adjusted Slightly
+Added a note on saving to the pause screen
+
+Bug Fixes:
+Addressed multiple controller issues:
+-Some controllers had control issues that have since been addressed
+Several Farming Issues:
+-Rounding errors for speed
+-One statue accounting for the wrong perk unlocked
+-Some statues occasionally not displaying text in very niche circumstances
+
+Known Issues:
+Some controllers may still face problems. If you do, please contact the developer and state what controller you had the issue with
+
+Additional Notes:
+This update focuses a lot on content. Bug fix 1.1.1 is already underway and expected to roll out soon.
+
+For Developers:
+This build does not have dev controls enabled. Those who are permitted to work on the game should already have their dev builds.

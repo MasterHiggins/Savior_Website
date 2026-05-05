@@ -1,5 +1,5 @@
 //Changelog
-fetch('changelogs/PublicBeta01.txt')
+fetch('changelogs/110.txt')
     .then(response => response.text())
     .then(changelogText => displayChangelog(changelogText))
     .catch(error => console.error('Error fetching changelog:', error));
@@ -19,15 +19,16 @@ function displayChangelog(changelogText) {
                     line.startsWith('Bug Fixes') || 
                     line.startsWith('Known Issues') ||
                     line.startsWith('Release Dates') ||
+                    line.startsWith('Additional Notes') ||
                     line.startsWith('For Developers')
                 ) {
             const boldHeading = document.createElement('strong');
             boldHeading.textContent = line;
             changelogDiv.appendChild(boldHeading);
         } else if (line.startsWith('-')) {
-            const listItem = document.createElement('li');
-            listItem.textContent = line.substring(1);
-            changelogDiv.appendChild(listItem);
+            // const listItem = document.createElement('li');
+            // listItem.textContent = line.substring(1);
+            // changelogDiv.appendChild(listItem);
         } else {
             const paragraph = document.createElement('p');
             paragraph.textContent = line;
