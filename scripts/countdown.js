@@ -1,5 +1,5 @@
 //Countdown
-var countDownDate = new Date("May 22, 2026 00:01:00").getTime();
+var countDownDate = new Date("May 22, 2026 00:00:01").getTime();
 
 var x = setInterval(function() {
 
@@ -22,7 +22,7 @@ document.getElementById("countdown").innerHTML = formattedTime;
 if (distance < 0) {
     clearInterval(x);
     document.getElementById("countdown").innerHTML = "Refresh for announcement";
-    window.location.href = "Fall2025Updates.html";
+    window.location.href = "https://store.steampowered.com/app/4431240/Savior";
 }
 }, 1000);
 
