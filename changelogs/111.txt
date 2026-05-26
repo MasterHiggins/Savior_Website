@@ -1,0 +1,30 @@
+Full release 1.1.1
+Gameplay Tweaks:
+Multiple enemy changes:
+-Enemies now render the same way the player does
+-Enemies now have collision like players do
+-Boss enemies now drop roughly 25% less materials after the first area 
+-Enemies after the first area now have the bottom of their material drop range set to zero
+Tick rates have been adjusted
+The player's hitbox was made slightly bigger
+
+Bug Fixes:
+Logitech controller fixes
+Chests that were infinitely openable now open properly
+Mesa teleport now works correctly in few situations it would not
+Spells are now properly disabled in the golden module cutscene
+Weapons can no longer be upgraded past Level 7:
+-If you have a level 8 sword, it will be reverted upon boot
+Fixed an issue where certain objects of the same class would not create properly
+Fixed issue where things could get stuck on the edge of the screen
+The game now starts in fullscreen
+
+Known Issues:
+Some controllers may still face problems. If you do, please contact the developer and state what controller you had the issue with
+Enemy collision is heavily modified from the player's and may not work correctly
+
+Additional Notes:
+This is the last queued update before the start of 1.2.0's development fully
+
+For Developers:
+This build does not have dev controls enabled. Those who are permitted to work on the game should already have their dev builds.

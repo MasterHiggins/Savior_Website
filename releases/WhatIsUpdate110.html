@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savior - What is Update 1.1.0?</title>
+    <link rel = "stylesheet" href = "../styles.css">
+    <link rel = "icon" href = "../assets/Logo.gif">
+</head>
+
+<header>
+    <img src = "../assets/Logo.gif" style = "margin-left: 20px;" class = "logo">
+    <div class = "header-buttons">
+        <a href = "../index.html">
+            <button>
+                Home
+            </button>
+        </a>
+        <a href = "../beta.html">
+            <button>
+                Betas
+            </button>
+        </a>
+        <a href = "../changelogs.html">
+            <button>
+                Changelogs
+            </button>
+        </a>
+        <a href = "../trailers.html">
+            <button>
+                Trailers
+            </button>
+        </a>
+        <a href = "../releases.html">
+            <button>
+                Releases
+            </button>
+        </a>
+    </div>
+</header>
+
+<body>
+    <div class = "release-page">
+        <br>
+        <div class = "centered-object"><img src = "../assets/Logo.gif" width = "25%"></div>
+        <div class = "release-heading">What is Update 1.1.0</div> <br>
+        <div class = "centered-object">
+            <section>
+                <div class = "article-author">Article from Chris Higgins</div> <div class = "dev-tag">(Developer)</div>
+            </section>
+        </div>
+        <div class = "centered-object">
+            <b>
+                This article does not contain spoilers
+            </b>
+        </div>
+
+        <p class = "article-margins">
+           Well this is crazy, an update a week after the game comes out. The video presentation is in the trailers page, however, if you prefer this article version, here you are.
+        </p>
+
+        <p class = "article-margins">
+            <h2>Feature 1: Farm Refunds</h2>
+        </p>
+
+        <p class = "article-margins">
+            There is now the ability to refund your farming perks for the materials you spent. However, for upgrades that require multiple purchases to get to the max, you will 
+            only get the materials back for one purchase, and the level will still be set to 0. This should, in theory, allow players to mix match their perks a little more if they commit 
+            to something they don't like.
+        </p>
+
+        <p class = "article-margins">
+            <h2>Feature 2: Wizard Rooms</h2>
+        </p>
+
+        <p class = "article-margins">
+            Much like the Heat Saving Mercenary, the Wizard now appears to offer lore in every area. This way, some more understanding can be given to what exactly is this cosmic 
+            battle.
+        </p>
+
+        <p class = "article-margins">
+            <h2>Feature 3(?): Custom Save Files</h2>
+        </p>
+
+        <p class = "article-margins">
+            You can download from this very page some custom files!
+        </p>
+
+        <button onclick="downloadSaveFile('SaviorEasy.txt')" style = "width: 45%;">
+            Easy Mode
+        </button>
+
+        <button onclick="downloadSaveFile('SaviorHard.txt')" style = "width: 45%;">
+            Hard Mode
+        </button>
+
+        <p class = "article-margins">
+            Have fun.
+        </p>
+
+        <p class = "article-margins">
+            <h2>Main Event: Mesa Area</h2>
+        </p>
+
+        <p class = "article-margins">
+            The Mesa is playable. I don't want to spoil much, but there's an Ancient Module, and something else, that set the stage for the next area...
+        </p>
+
+        <p class = "article-margins">
+            <b>The Next Update, 1.2.0</b>
+        </p>
+
+        <p class = "article-margins">
+            I'm currently experimenting with the tileset and designing the enemies of the next area, the Mucklands. Here's how it might look right now.
+        </p>
+
+        <img src = "../assets/PromoScreenshots/MucklandsMockUp1.png" width = "80%" height = "auto">
+        
+        <p class = "article-margins">
+            <i>Some plants that I would like to try to use.</i>
+        </p>
+
+        <img src = "../assets/PromoScreenshots/MucklandsMockUp2.png" width = "80%" height = "auto">
+        
+        <p class = "article-margins">
+            <i>Islands to go around, possible enemy locations</i>
+        </p>
+
+        <img src = "../assets/PromoScreenshots/MucklandsMockUp3.png" width = "80%" height = "auto">
+        
+        <p class = "article-margins">
+            <i>????????????????????????????????????????????</i>
+        </p>
+        
+        <p class = "article-margins">
+            I'm not very happy with the water currently, and some assets may not even be used, but we'll see what happens. This update will also feature a few new additions, but the
+            focus this time is almost entirely on the Mucklands because it's a huge area.
+        </p>
+        
+        <p class = "article-margins">
+            There is also a bug fix ready to go, update 1.1.1, which will go out shortly after the update on Friday. It also has, very importantly, a huge change. Enemies will now,
+            probably, have the same collision and rendering as the player, however this is still highly experimental.
+        </p>
+        
+        <p class = "article-margins">
+            The update is out on Friday. Please enjoy!
+        </p>
+    </div>
+
+    <script>
+        function downloadSaveFile(filename) {
+            const url = '../Saves/' + filename;
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+
+<footer>
+    <img src = "../assets/Logo.gif" width = "auto" height = "80px">
+    <div class = "footer-contact">
+        <section>Need to contact the developer?</section>
+        <a href = "https://www.linkedin.com/in/chris-higg/">
+            <button>
+                Linkedin
+            </button>
+        </a>
+    </div>
+</footer>
+
+</html>
