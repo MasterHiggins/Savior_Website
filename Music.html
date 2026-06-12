@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savior - Music</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/Logo.gif">
+    <style>
+        .music-shell { padding: 24px 18px 40px; background: #ffffff; color: #0e3b0e; }
+        .music-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 24px; align-items: start; }
+        .music-card, .music-list-card { background: #f6fff6; border: 2px solid #2d8b2d; border-radius: 18px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12); padding: 18px; }
+        .eyebrow { text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.78rem; color: #1a6b1a; }
+        .music-title { font-size: 2rem; margin: 6px 0 8px; color: #145214; }
+        .music-copy { color: #234723; line-height: 1.45; font-size: 1rem; }
+        .player-visual { display: flex; align-items: center; justify-content: space-between; gap: 14px; background: #eef8ee; border: 1px solid #8bcf8b; border-radius: 14px; padding: 12px; margin-top: 14px; }
+        .player-badge { color: #137613; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.16em; }
+        .player-track { color: #0b3f0b; font-size: 1.05rem; font-weight: 700; }
+        .player-meta { color: #285528; font-size: 0.95rem; }
+        .music-controls { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+        .music-controls button { width: auto; min-width: 110px; }
+        .music-controls .active { background: #1d8f3b; color: #ffffff; border-color: #66e08c; }
+        .music-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; color: #146b14; text-decoration: none; font-weight: 700; }
+        .music-link:hover { color: #0d2f0d; text-decoration: underline; }
+        .music-list { display: grid; gap: 8px; max-height: 420px; overflow: auto; padding-right: 4px; }
+        .song-chip { display: flex; align-items: center; justify-content: space-between; gap: 10px; border: 1px solid #bde5bd; border-radius: 12px; padding: 10px; background: #ffffff; }
+        .song-chip.playable:hover { border-color: #1a7d1a; background: #edf8ef; cursor: pointer; }
+        .song-chip.playing { border-color: #1aa335; background: #effff4; }
+        .song-chip.disabled { opacity: 0.68; }
+        .song-label { display: flex; flex-direction: column; gap: 2px; }
+        .song-name { color: #103c10; font-size: 0.98rem; }
+        .song-status { color: #456d45; font-size: 0.82rem; }
+        .mini-pill { display: inline-block; border-radius: 999px; padding: 4px 8px; background: #edf7ed; color: #216421; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; }
+        .mini-pill.unavailable { background: #fff3e1; color: #8c5e12; }
+        .player-frame-wrap { margin-top: 14px; border: 2px solid #2d8b2d; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 8px 18px rgba(0,0,0,0.1); }
+        .yt-player { width: 100%; min-height: 320px; border: 0; display: block; background: #000; }
+        @media (max-width: 980px) { .music-grid { grid-template-columns: 1fr; } .music-list { max-height: none; } }
+        @media (max-width: 520px) { .music-shell { padding: 14px 10px 28px; } .music-title { font-size: 1.5rem; } .player-visual { flex-direction: column; align-items: flex-start; } .music-controls button { width: 100%; } }
+    </style>
+</head>
+<header>
+    <img src="assets/Logo.gif" style="margin-left:20px;" class="logo">
+    <div class="header-buttons">
+        <a href="index.html"><button>Home</button></a>
+        <a href="beta.html"><button>Betas</button></a>
+        <a href="changelogs.html"><button>Changelogs</button></a>
+        <a href="trailers.html"><button>Trailers</button></a>
+        <a href="releases.html"><button>Releases</button></a>
+    </div>
+</header>
+<body>
+    <main class="music-shell">
+        <div class="music-grid">
+            <section class="music-card">
+                <p class="eyebrow">Savior soundtrack</p>
+                <h1 class="music-title">Audio player with shuffle, repeat, and full track catalog</h1>
+                <p class="music-copy">Only linked tracks are selectable from the main queue. The complete soundtrack list is shown below so you can browse every track, including upcoming entries.</p>
+
+                <div class="player-visual">
+                    <div>
+                        <div id="currentBadge" class="player-badge">Now playing</div>
+                        <div id="currentTrack" class="player-track">Loading soundtrack…</div>
+                        <div id="currentMeta" class="player-meta">The YouTube audio player will open here as soon as the playlist is ready.</div>
+                    </div>
+                    <div class="mini-pill" id="queueStatus">Queue ready</div>
+                </div>
+
+                <div class="music-controls">
+                    <button id="prevBtn" type="button">Previous</button>
+                    <button id="playBtn" type="button">Play</button>
+                    <button id="nextBtn" type="button">Next</button>
+                    <button id="shuffleBtn" type="button">Shuffle: Off</button>
+                    <button id="loopBtn" type="button">Loop: Off</button>
+                </div>
+
+                <a id="youtubeLink" class="music-link" href="#" target="_blank" rel="noreferrer">Open this song on YouTube</a>
+
+                <div class="player-frame-wrap">
+                    <iframe id="ytPlayer" class="yt-player" title="YouTube audio player" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <aside class="music-list-card">
+                <p class="eyebrow">Playable queue</p>
+                <h2 style="margin:6px 0 8px; color:#fff; font-size:1.25rem;">Choose a linked track</h2>
+                <div id="playableList" class="music-list"></div>
+            </aside>
+        </div>
+
+        <section class="music-list-card" style="margin-top: 24px;">
+            <p class="eyebrow">Full soundtrack list</p>
+            <h2 style="margin:6px 0 8px; color:#fff; font-size:1.25rem;">All songs from the catalog</h2>
+            <div id="fullList" class="music-list"></div>
+        </section>
+
+    </main>
+
+    <script>
+        const playerFrame = document.getElementById('ytPlayer');
+        const currentTrackEl = document.getElementById('currentTrack');
+        const currentMetaEl = document.getElementById('currentMeta');
+        const currentBadgeEl = document.getElementById('currentBadge');
+        const queueStatusEl = document.getElementById('queueStatus');
+        const youtubeLinkEl = document.getElementById('youtubeLink');
+        const playableListEl = document.getElementById('playableList');
+        const fullListEl = document.getElementById('fullList');
+        const playBtn = document.getElementById('playBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const shuffleBtn = document.getElementById('shuffleBtn');
+        const loopBtn = document.getElementById('loopBtn');
+
+        const SONGS_CSV = `https://youtu.be/7OPrS6AkQ_Q, 01 - Main Theme
+https://youtu.be/6KmFkwApCXY, 02 - Grassland Medley
+https://youtu.be/PBpe6VjIUkE, 03 - Mystique Forest
+https://youtu.be/j8TzYe505O4, 04 - Dark Rooms
+https://youtu.be/egakkaq8_Bc, 05 - Perilous Climb
+https://youtu.be/Vj5Pon4Hfro, 06 - Static
+https://youtu.be/zfWc3m4MILM, 07 - Part 1 Theme
+https://youtu.be/LF1RSF8dW_Q, 08 - Troubling Tumbleweeds
+NO LINK, Coming Soon
+NO LINK, Coming Soon
+NO LINK, Coming Soon
+NO LINK, Coming Soon
+NO LINK, Coming Soon
+NO LINK, Coming Soon
+https://youtu.be/n-bEVd0tsYw, 15 - Part 2 Theme
+https://youtu.be/t_Q1dz_cfhg, 16 - The Master Star
+NO LINK, Coming Soon
+NO LINK, Coming Soon`;
+
+        let songs = [];
+        let playQueue = [];
+        let queueIndex = 0;
+        let shuffleEnabled = false;
+        let loopEnabled = false;
+
+        function normalizeUrl(url) {
+            return url.startsWith('https://youtu.be/') ? url.replace('https://youtu.be/', 'https://www.youtube.com/watch?v=') : url;
+        }
+
+        function parseCsv(text) {
+            return text.split(/\r?\n/)
+                .filter(Boolean)
+                .map((line) => {
+                    const [rawLink, ...rest] = line.split(',');
+                    const label = rest.join(',').trim();
+                    return { link: rawLink.trim(), label, id: rawLink.trim().startsWith('https://youtu.be/') ? rawLink.trim().split('/').pop() : null };
+                });
+        }
+
+        function makePlayableQueue() {
+            const available = songs.filter((song) => song.link !== 'NO LINK');
+            return available.map((song) => songs.indexOf(song));
+        }
+
+        function shuffleArray(items) {
+            const copy = [...items];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        function refreshQueue() {
+            if (!shuffleEnabled) {
+                playQueue = makePlayableQueue();
+            } else if (playQueue.length === 0) {
+                playQueue = shuffleArray(makePlayableQueue());
+            }
+            if (queueIndex < 0 || queueIndex >= playQueue.length) {
+                queueIndex = 0;
+            }
+            const currentSongIndex = playQueue[queueIndex];
+            renderLists(currentSongIndex);
+            updatePlayerState(currentSongIndex);
+        }
+
+        function renderLists(activeIndex = null) {
+            playableListEl.innerHTML = '';
+            const playableSongs = songs.filter((song) => song.link !== 'NO LINK');
+            playableSongs.forEach((song, i) => {
+                const originalIndex = songs.indexOf(song);
+                const chip = document.createElement('button');
+                chip.type = 'button';
+                chip.className = 'song-chip playable' + (originalIndex === activeIndex ? ' playing' : '');
+                chip.onclick = () => chooseSong(originalIndex);
+                chip.innerHTML = `<span class="song-label"><span class="song-name">${song.label}</span><span class="song-status">Playable on YouTube</span></span><span class="mini-pill">Play</span>`;
+                playableListEl.appendChild(chip);
+            });
+
+            fullListEl.innerHTML = '';
+            songs.forEach((song, index) => {
+                const chip = document.createElement('div');
+                const isPlayable = song.link !== 'NO LINK';
+                chip.className = 'song-chip ' + (isPlayable ? '' : 'disabled');
+                chip.innerHTML = `<span class="song-label"><span class="song-name">${song.label}</span><span class="song-status">${isPlayable ? 'Linked track' : 'Coming soon'}</span></span><span class="mini-pill ${isPlayable ? '' : 'unavailable'}">${isPlayable ? 'Available' : 'Unavailable'}</span>`;
+                if (isPlayable) {
+                    chip.style.cursor = 'pointer';
+                    chip.onclick = () => chooseSong(index);
+                }
+                fullListEl.appendChild(chip);
+            });
+        }
+
+        function buildEmbedUrl(song) {
+            if (!song || !song.id) return '';
+            return `https://www.youtube.com/embed/${song.id}?autoplay=1&mute=1&controls=1&playsinline=1&rel=0&modestbranding=1&loop=${loopEnabled ? 1 : 0}&playlist=${song.id}`;
+        }
+
+        function updatePlayerState(index) {
+            const song = songs[index];
+            if (!song) { return; }
+            currentTrackEl.textContent = song.label;
+            currentMetaEl.textContent = song.link === 'NO LINK' ? 'This track is not linked yet.' : 'The audio player uses a YouTube embed so the page works as a static file.';
+            currentBadgeEl.textContent = song.link === 'NO LINK' ? 'Coming soon' : 'Now playing';
+            queueStatusEl.textContent = `${shuffleEnabled ? 'Shuffle' : 'Queue'} • ${playQueue.length} linked songs`;
+            youtubeLinkEl.href = song.link === 'NO LINK' ? '#' : normalizeUrl(song.link);
+            youtubeLinkEl.style.display = song.link === 'NO LINK' ? 'none' : 'inline-flex';
+            if (song.link !== 'NO LINK') {
+                loadSong(index);
+            } else {
+                playerFrame.src = '';
+            }
+        }
+
+        function loadSong(index) {
+            const song = songs[index];
+            if (!song || !song.id) return;
+            playerFrame.src = buildEmbedUrl(song);
+            playerFrame.setAttribute('allow', 'autoplay; encrypted-media');
+            currentTrackEl.textContent = song.label;
+            playBtn.textContent = 'Pause';
+        }
+
+        function chooseSong(index) {
+            const song = songs[index];
+            if (!song || song.link === 'NO LINK') return;
+            if (shuffleEnabled) {
+                playQueue = shuffleArray(makePlayableQueue());
+            }
+            queueIndex = playQueue.indexOf(index);
+            if (queueIndex < 0) {
+                queueIndex = 0;
+                playQueue = makePlayableQueue();
+            }
+            updatePlayerState(index);
+            renderLists(index);
+        }
+
+        function playCurrent() {
+            const song = songs[playQueue[queueIndex]];
+            if (!song || song.link === 'NO LINK') return;
+            loadSong(playQueue[queueIndex]);
+            playBtn.textContent = 'Pause';
+        }
+
+        function nextSong() {
+            if (!playQueue.length) return;
+            queueIndex = (queueIndex + 1) % playQueue.length;
+            updatePlayerState(playQueue[queueIndex]);
+            renderLists(playQueue[queueIndex]);
+        }
+
+        function previousSong() {
+            if (!playQueue.length) return;
+            queueIndex = (queueIndex - 1 + playQueue.length) % playQueue.length;
+            updatePlayerState(playQueue[queueIndex]);
+            renderLists(playQueue[queueIndex]);
+        }
+
+        function toggleShuffle() {
+            shuffleEnabled = !shuffleEnabled;
+            if (shuffleEnabled) {
+                playQueue = shuffleArray(makePlayableQueue());
+                queueIndex = playQueue.indexOf(songs.indexOf(songs.find((song) => song.label === currentTrackEl.textContent)));
+            } else {
+                playQueue = makePlayableQueue();
+            }
+            if (queueIndex < 0) queueIndex = 0;
+            shuffleBtn.textContent = 'Shuffle: ' + (shuffleEnabled ? 'On' : 'Off');
+            shuffleBtn.classList.toggle('active', shuffleEnabled);
+            renderLists(playQueue[queueIndex]);
+            updatePlayerState(playQueue[queueIndex]);
+        }
+
+        function toggleLoop() {
+            loopEnabled = !loopEnabled;
+            loopBtn.textContent = 'Loop: ' + (loopEnabled ? 'On' : 'Off');
+            loopBtn.classList.toggle('active', loopEnabled);
+            const current = playQueue[queueIndex];
+            if (typeof current !== 'undefined') loadSong(current);
+        }
+
+        playBtn.addEventListener('click', () => {
+            if (playBtn.textContent === 'Play') {
+                playCurrent();
+            } else {
+                playerFrame.src = '';
+                playBtn.textContent = 'Play';
+            }
+        });
+
+        prevBtn.addEventListener('click', previousSong);
+        nextBtn.addEventListener('click', nextSong);
+        shuffleBtn.addEventListener('click', toggleShuffle);
+        loopBtn.addEventListener('click', toggleLoop);
+
+        songs = parseCsv(SONGS_CSV);
+        playQueue = makePlayableQueue();
+        queueIndex = 0;
+        renderLists(playQueue[0]);
+        updatePlayerState(playQueue[0]);
+        shuffleBtn.textContent = 'Shuffle: Off';
+        loopBtn.textContent = 'Loop: Off';
+        currentMetaEl.textContent = 'Playlist loaded. Pick a linked track to start the audio player.';
+    </script>
+</body>
+<footer>
+    <img src="assets/Logo.gif" width="auto" height="80px">
+    <div class="footer-contact">
+        <section>Need to contact the developer?</section>
+        <a href="https://www.linkedin.com/in/chris-higg/"><button>Linkedin</button></a>
+    </div>
+</footer>
+</html>
