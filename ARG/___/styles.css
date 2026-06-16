@@ -18,3 +18,25 @@
     color: white;
     text-align: center;
 }
+
+.Encounter {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 36px;
+    color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 800%;
+    background-color: black;
+    margin: 75px;
+    text-align: center;
+}
+
+.Encounter-Rebuttal {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 36px;
+    color: white;
+    text-align: center;
+}
+
