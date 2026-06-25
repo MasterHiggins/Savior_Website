@@ -1,3 +1,7 @@
-If you can see this file, that means this was after countdowns were added to the site.
+And so it has already happened.
 
-Sucker, You won't see any files here at all related to countdown contents.
+The Star decided living was painful.
+
+So he would liberate them all.
+
+And be the savior of the cosmos.
