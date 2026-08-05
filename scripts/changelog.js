@@ -1,5 +1,5 @@
 //Changelog
-fetch('changelogs/111.txt')
+fetch('changelogs/120.txt')
     .then(response => response.text())
     .then(changelogText => displayChangelog(changelogText))
     .catch(error => console.error('Error fetching changelog:', error));

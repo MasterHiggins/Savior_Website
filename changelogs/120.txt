@@ -1,0 +1,39 @@
+Full release 1.2.0
+Content Additions:
+Added the Mucklands
+Added 3 Enemies:
+-Sludge Ball (Give 0-2 Materials on death, have 17 health)
+-Sludge Main (Give 0-3 Materials on death, have 25 health)
+-Sludge King Boss (Give 60 Materials on death, have 200 health)
+Added Gambling:
+-Accessed through farming, offer ten materials to test your luck
+Added Invincibility Spell:
+-Unlocked through farming, using grants invincibility for 10 seconds, costs half of health remaining
+
+Gameplay Tweaks:
+Weapon upgrades after level 4 now follow the formula for cost: 150 * Weapon Level + 70
+Various spell changes:
+-Hellfire is now 2 health in cost
+-Sunbeam is now 2 health in cost
+-Gravity Wave is now 4 health
+-The cool down for the healing spell has been cut in half
+The control screen when the game boots up is now adjusted to make it clear to press a button to progress
+
+Bug Fixes:
+Fixed graphical errors in a cutscene
+Level 8 swords now get refunded instead of just reverted (if your sword was reverted without being refunded, please use the save editor, set your weapon level to 8, and restart the game)
+Fixed an issue where the player's hitbox could sometimes "detach" from the player.
+Fixed various farming bugs in regards to harvesting and timing that rarely occured
+Fixed a bug where you could pause and use spells in the previous Melony area
+Music now plays properly when reloading an area after activating a spell and pausing before it was complete
+Fixed an issue where waiting too long could stop animated tiles such as lava
+The sword now swings the correct amount of range
+
+Known Issues:
+There are no known issues, but please contact me on LinkedIn if you encounter anything
+
+Additional Notes:
+There are no plans for a hotfix, such as 1.2.1, however, if there are many bugs, some game breaking, then there will be a patch shipped out
+
+For Developers:
+This build does not have dev controls enabled. Those who are permitted to work on the game should already have their dev builds for 1.3.0
