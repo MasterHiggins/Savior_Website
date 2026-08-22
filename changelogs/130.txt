@@ -1,0 +1,38 @@
+Full release 1.3.0
+Content Additions:
+Added the Main Base Volcano:
+Added 2 Enemies:
+-Star (Give 1-3 Materials on death, have 25 health)
+-Big Star (Give 1-3 Materials on death, have 50 health)
+Added Sterzonia City
+Added three new sword levels
+Added Farm Doubling:
+-Certain farming perks can now be doubled when specific criteria are met
+Added extra a dungeon room:
+-Can be completed right away but intended for much later
+
+Gameplay Tweaks:
+You are no longer refunded for the level 8 sword upon boot if you have it
+All enemies drop at least one material
+The healing spell now takes half as long as normal to rechard after getting 15 max health
+Respawning now gives 75% of health back as opposed to 50% before
+Incorrect module graphics have been changed
+
+Bug Fixes:
+Certain attacks no longer spawn on the player
+Enemies now spawn exactly where they were placed
+Enemies no longer play the incorrect frame under certain circumstances
+Rooms with large enemy numbers no longer take a few frames longer to load
+Approximately 30 fixes to farming were made
+Roughly 50 glitched sprites were fixed
+Fixed a crash for the spells were able to be spammed, which is no longer possible
+Fixed an issue where music did not play consistently
+
+Known Issues:
+There are some minor issues being fixed soon, but not the most easily enountered issues are present
+
+Additional Notes:
+There is a patch going out in a few days.
+
+For Developers:
+No notes

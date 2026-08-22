@@ -5,14 +5,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savior Game</title>
     <link rel = "icon" href = "assets/Logo.gif">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            margin-top: 20px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #e94560, #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #aaa;
+            font-weight: 300;
+        }
+
+        .library-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .game-card {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            aspect-ratio: 3 / 4;
+            background: #0f3460;
+            transition: all 0.3s ease;
+        }
+
+        .game-card:hover .card-image-container {
+            box-shadow: 0 20px 60px rgba(233, 69, 96, 0.4);
+            border: 2px solid #e94560;
+        }
+
+        .card-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover .card-image-container img {
+            transform: scale(1.05);
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            padding: 30px 20px 20px;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .game-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #f39c12;
+            font-weight: 500;
+        }
+
+        .play-button {
+            margin-top: 12px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #e94560, #f39c12);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            width: fit-content;
+        }
+
+        .play-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+                margin-bottom: 5px;
+            }
+
+            .header p {
+                font-size: 0.95rem;
+            }
+
+            .library-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 10px;
+            }
+
+            .card-image-container {
+                aspect-ratio: 2 / 3;
+            }
+
+            .card-overlay {
+                opacity: 1;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.7));
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+            }
+
+            .card-subtitle {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                margin-bottom: 30px;
+                margin-top: 10px;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .library-container {
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div style = "font-family: Arial, Helvetica, sans-serif; text-align: center;">Select Your Title</div>
-    <div style = "display: flex; justify-content: space-evenly; align-items: center; height: 100vh; margin: 20%;">
-        <img src = "assets/SaviorCover.jpg">
+    <div class="header">
+        <h1>Choose one of the Savior games</h1>
+    </div>
 
-        <img src = "assets/SaviorCover.jpg">
+    <div class="library-container">
+        <a href="homepage.html" class="game-card">
+            <div class="card-image-container">
+                <img src="assets/SaviorCover.jpg" alt="Savior">
+            </div>
+        </a>
+
+        <div class="game-card" onclick="alert('Coming Soon!')">
+            <div class="card-image-container" style="opacity: 0.6; cursor: not-allowed;">
+                <img src="assets/SaviorCover.jpg" alt="Coming Soon">
+                <div class="card-overlay" style="opacity: 1;">
+                    <div class="card-title">NOT READY</div>
+                    <div class="card-subtitle">STOP PEEKING!!!</div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
