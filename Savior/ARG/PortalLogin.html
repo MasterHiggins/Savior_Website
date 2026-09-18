@@ -40,18 +40,24 @@
         function handleLogin(event) {
             event.preventDefault();
 
-            const username = document.getElementById('username').value;
+            const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
-            const pin = document.getElementById('pin').value;
+            const pin = document.getElementById('pin').value.trim();
 
             const correctUsername = 'Evan';
             const correctPassword = 'Ending123';
             const correctPin = '0522';
 
+            const cosmicUsername = 'Axel';
+            const cosmicPassword = 'Melody<3';
+            const cosmicPin = '0918';
+
             const errorMessage = document.getElementById('errorMessage');
 
             if (username === correctUsername && password === correctPassword && pin === correctPin) {
                 window.location.href = 'InvestigationIndex.html';
+            } else if (username === cosmicUsername && password === cosmicPassword && pin === cosmicPin) {
+                window.location.href = '../../CosmicStory/ARG/Characters.html';
             } else {
                 errorMessage.textContent = 'Invalid credentials. Please try again.';
                 errorMessage.style.display = 'block';
